@@ -1,5 +1,5 @@
-## redux-2ways-binding
-Build two ways binding with Redux and Immutable.
+## redux-2way-binding
+Build two way binding with Redux and Immutable.
 
 [Redux](https://github.com/rackt/redux) is a predictable state container for JavaScript apps.
 [Immutable](https://github.com/hughfdjackson/immutable) neatly packages immutable equivalents to JavaScript's Objects and Arrays.
@@ -7,11 +7,11 @@ Build two ways binding with Redux and Immutable.
 Get Started
 ===============
 
-Three step to set 2-ways binding:
+Three step to set 2-way binding:
 1.createReducer:
 ----------------
 
-    import binding from 'redux-2ways-binding'
+    import binding from 'redux-2way-binding'
     import Immutable from 'immutable'
     
     let bindingStore=binding.bindingStore;
@@ -27,7 +27,7 @@ Three step to set 2-ways binding:
 2.setStore:
 -------------
 
-    import binding from 'redux-2ways-binding'
+    import binding from 'redux-2way-binding'
     
     let bindingMixin = binding.bindingMixin;
     
@@ -71,7 +71,7 @@ Three step to set 2-ways binding:
 Usage
 ==========
 
-    npm install redux-2ways-binding
+    npm install redux-2way-binding
     
 Notice
 ==========

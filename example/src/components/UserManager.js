@@ -3,7 +3,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
-import binding from 'redux-2ways-binding'
+import binding from 'redux-2way-binding'
 
 let bindingMixin = binding.bindingMixin;
 
