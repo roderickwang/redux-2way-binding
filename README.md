@@ -35,7 +35,7 @@ Three step to set 2-ways binding:
     export default class UserManager extends Component {
         constructor(props) {
             super(props);
-            this.setBinding('users', props.users, props.dispatch);
+            this.setBinding('users');
         }
     }
 
@@ -72,3 +72,11 @@ Usage
 ==========
 
     npm install redux-2ways-binding
+    
+Notice
+==========
+
+The component will be used to binding must have 2 props.
+One is dispatch which is created by redux.
+Another is the store which to be set in "this.setBinding('users');".
+     
