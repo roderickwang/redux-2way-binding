@@ -1,6 +1,5 @@
 ## redux-2ways-binding
-
-This project works with Redux and Immutable.
+Build two ways binding with Redux and Immutable.
 
 [Redux](https://github.com/rackt/redux) is a predictable state container for JavaScript apps.
 [Immutable](https://github.com/hughfdjackson/immutable) neatly packages immutable equivalents to JavaScript's Objects and Arrays.
