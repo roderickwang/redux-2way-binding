@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Redux-2way-binding by roderickwang</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Redux-2way-binding</h1>
+        <h2>2 ways binding decorator with redux &amp; react</h2>
+        <a href="https://github.com/roderickwang/redux-2way-binding" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h2>
+<a id="redux-2way-binding" class="anchor" href="#redux-2way-binding" aria-hidden="true"><span class="octicon octicon-link"></span></a>redux-2way-binding</h2>
+
+<p>Build two way binding with Redux and Immutable.</p>
+
+<p><a href="https://github.com/rackt/redux">Redux</a> is a predictable state container for JavaScript apps.
+<a href="https://github.com/hughfdjackson/immutable">Immutable</a> neatly packages immutable equivalents to JavaScript's Objects and Arrays.</p>
+
+<h1>
+<a id="get-started" class="anchor" href="#get-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get Started</h1>
+
+<p>Three step to set 2-way binding:</p>
+
+<h2>
+<a id="1createreducer" class="anchor" href="#1createreducer" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.createReducer:</h2>
+
+<pre><code>import binding from 'redux-2way-binding'
+import Immutable from 'immutable'
+
+let bindingStore=binding.bindingStore;
+
+const initialState = Immutable.fromJS({
+
+});
+
+export default bindingStore('users',initialState, {
+
+})
+</code></pre>
+
+<h2>
+<a id="2setstore" class="anchor" href="#2setstore" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.setStore:</h2>
+
+<pre><code>import binding from 'redux-2way-binding'
+
+let bindingMixin = binding.bindingMixin;
+
+@bindingMixin
+export default class UserManager extends Component {
+    constructor(props) {
+        super(props);
+        this.setBinding('users');
+    }
+}
+</code></pre>
+
+<h2>
+<a id="3binding" class="anchor" href="#3binding" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.binding:</h2>
+
+<pre><code>render() {
+        const {users}=this.props;
+
+        return (
+            &lt;div&gt;
+                &lt;div&gt;
+                    &lt;p&gt;Name:&lt;input type='text' valueLink={this.binding('name')}/&gt;&lt;/p&gt;
+                    &lt;p&gt;Age:&lt;input type='number' valueLink={this.binding('age')}/&gt;&lt;/p&gt;
+                    &lt;p&gt;Sex:
+                        &lt;select valueLink={this.binding('sex')}&gt;
+                            &lt;option value='male'&gt;male&lt;/option&gt;
+                            &lt;option value='female'&gt;female&lt;/option&gt;
+                        &lt;/select&gt;
+                    &lt;/p&gt;
+                &lt;/div&gt;
+
+                &lt;div&gt;
+                    &lt;p&gt; Name:{users.get('name')}&lt;/p&gt;
+                    &lt;p&gt; Age:{users.get('age')}&lt;/p&gt;
+                    &lt;p&gt; Sex:{users.get('sex')}&lt;/p&gt;
+
+                &lt;/div&gt;
+            &lt;/div&gt;
+        )
+    }
+</code></pre>
+
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<pre><code>npm install redux-2way-binding
+</code></pre>
+
+<h1>
+<a id="notice" class="anchor" href="#notice" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notice</h1>
+
+<p>The component will be used to binding must have 2 props.
+One is dispatch which is created by redux.
+Another is the store which to be set in "this.setBinding('users');".</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/roderickwang/redux-2way-binding/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/roderickwang/redux-2way-binding/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/roderickwang/redux-2way-binding"></a> is maintained by <a href="https://github.com/roderickwang">roderickwang</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
