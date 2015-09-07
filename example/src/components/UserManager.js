@@ -36,10 +36,21 @@ export default class UserManager extends Component {
                     <p> Name:{users.get('name')}</p>
                     <p> Age:{users.get('age')}</p>
                     <p> Sex:{users.get('sex')}</p>
-
+                    <p><button type='button' onClick={this.changeName.bind(this)}>changeName:John</button></p>
+                    <p><button type='button' onClick={this.addAge.bind(this)}>AddAge</button></p>
                 </div>
             </div>
         )
+    }
+
+    changeName(){
+        this.manualChange('name','John');
+    }
+
+    addAge(){
+        this.manualFuncChange('age',function(age){
+            return ++age;
+        })
     }
 
 }

@@ -67,11 +67,34 @@ Three step to set 2-way binding:
                 </div>
             )
         }
+Manual Change Functions
+==========
+Help user to set reducer by path and value or function,avoid to write more actions.
+
+1.manualChange
+--------------
+
+    this.manualChange('name','john');
+    
+2.manualChangeFunc:
+--------------
+    
+    this.manualChangeFunc('age',function(age){
+       return ++age;
+    });
+        
         
 Usage
 ==========
 
     npm install redux-2way-binding
+    
+RunExample
+==========
+
+    cd example
+    npm install
+    gulp dev
     
 Notice
 ==========
