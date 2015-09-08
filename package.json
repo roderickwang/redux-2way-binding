@@ -1,6 +1,6 @@
 {
   "name": "redux-2way-binding",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "2 ways binding with redux & react & immutable",
   "main": "./lib",
   "scripts": {

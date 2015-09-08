@@ -46,42 +46,35 @@ export default DecoratedComponent => {
     }
 
     /**
-     * manual change value by path
+     * manual change value by path,newValue or a cover function
      * @param path
      * @param newValue
      */
     DecoratedComponent.prototype.manualChange = function (path, newValue) {
+
+        let reducerName,store;
+
         let {reducerPath}=this.bindingOrigin;
         let reducerPathArray = reducerPath.split(',');
+        let {dispatch}=this.props;
+
+        if(typeof newValue === "function"){
+            reducerName = reducerPathArray[reducerPathArray.length - 1];
+            store = this.props[reducerName];
+        }
+
         let topicName = reducerPathArray.shift();
         let pathArray = reducerPathArray.concat(path.split(','));
 
-        let {dispatch}=this.props;
+
+        if(typeof newValue === "function") {
+            let value = store.getIn(pathArray);
+            let alterValue = newValue(value);
+            dispatch({type: `${topicName}_BINDING_UPDATE`, path: pathArray, value: alterValue});
+            return;
+        }
+
 
         dispatch({type: `${topicName}_BINDING_UPDATE`, path: pathArray, value: newValue});
     }
-
-    /**
-     * manual change value by path and function
-     * @param path
-     * @param newValue
-     */
-    DecoratedComponent.prototype.manualFuncChange = function (path, func) {
-        let {reducerPath}=this.bindingOrigin;
-        let reducerPathArray = reducerPath.split(',');
-
-        let reducerName = reducerPathArray[reducerPathArray.length - 1];
-        let store = this.props[reducerName];
-
-        let topicName = reducerPathArray.shift();
-        let pathArray = reducerPathArray.concat(path.split(','));
-        let value = store.getIn(pathArray);
-        let newValue = func(value);
-
-        let {dispatch}=this.props;
-
-        dispatch({type: `${topicName}_BINDING_UPDATE`, path: pathArray, value: newValue});
-    }
-
-
 }

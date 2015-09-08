@@ -71,15 +71,15 @@ Manual Change Functions
 ==========
 Help user to set reducer by path and value or function,avoid to write more actions.
 
-1.manualChange
+1.Manual change a reducer by path and value:
 --------------
 
     this.manualChange('name','john');
     
-2.manualChangeFunc:
+2.Manual change a reducer by path and covert function:
 --------------
     
-    this.manualChangeFunc('age',function(age){
+    this.manualChange('age',function(age){
        return ++age;
     });
         
