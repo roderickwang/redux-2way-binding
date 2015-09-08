@@ -48,7 +48,7 @@ export default class UserManager extends Component {
     }
 
     addAge(){
-        this.manualFuncChange('age',function(age){
+        this.manualChange('age',function(age){
             return ++age;
         })
     }
